@@ -5,7 +5,7 @@ plugins {
     jacoco
 }
 
-group = "org.example"
+group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -23,4 +23,7 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+tasks.jacocoTestReport {
+    reports { xml.required.set(true) }
 }
