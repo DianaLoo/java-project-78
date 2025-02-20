@@ -12,6 +12,7 @@ class NumberSchemaTest {
         var schema = new NumberSchema();
         assertTrue(schema.isValid(null));
         assertFalse(schema.required().isValid(null));
+        assertTrue(schema.required().isValid(5));
     }
 
     @Test
