@@ -10,7 +10,7 @@ class StringSchemaTest {
     @Test
     void requiredTest() {
         var schema = new StringSchema();
-
+        assertTrue(schema.isValid(null));
         assertFalse(schema.required().isValid(null));
         assertFalse(schema.required().isValid(""));
     }

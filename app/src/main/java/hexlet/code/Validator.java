@@ -7,4 +7,7 @@ public class Validator {
     public NumberSchema number() {
         return new NumberSchema();
     }
+    public MapSchema map() {
+        return new MapSchema();
+    }
 }
