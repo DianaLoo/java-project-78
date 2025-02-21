@@ -4,28 +4,28 @@ setup:
 	./gradlew wrapper --gradle-version 8.5
 
 clean:
-	./app/gradlew -p ./app/ clean
+	./app/gradlew clean
 
 build:
-	./app/gradlew -p ./app/ clean build
+	./app/gradlew clean build
 
 install:
-	./app/gradlew -p ./app/ clean install
+	./app/gradlew clean install
 
 run:
-	./app/gradlew -p ./app/ run
+	./app/gradlew run
 
 test:
-	./app/gradlew -p ./app/ test
+	./app/gradlew test
 
 report:
-	./app/gradlew -p ./app/ jacocoTestReport
+	./app/gradlew jacocoTestReport
 
 lint:
-	./app/gradlew -p ./app/ checkstyleMain
+	./app/gradlew checkstyleMain
 
 check-deps:
-	./app/gradlew -p ./app/ dependencyUpdates -Drevision=release
+	./app/gradlew dependencyUpdates -Drevision=release
 
 
 build-run: build run
