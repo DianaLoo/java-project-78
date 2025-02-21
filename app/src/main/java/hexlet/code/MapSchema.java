@@ -13,7 +13,7 @@ public class MapSchema extends BaseSchema<Map<?, ?>> {
         addValidation("sizeof", map -> map.size() == size);
         return this;
     }
-    public <T> MapSchema shape(Map<String, BaseSchema<String>> schemas) {
+    public MapSchema shape(Map<String, BaseSchema<String>> schemas) {
         addValidation(
                 "shape", map -> {
                     return schemas.entrySet().stream().allMatch(e -> {
