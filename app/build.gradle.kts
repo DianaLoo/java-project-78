@@ -1,6 +1,5 @@
 plugins {
-    //id("java")
-    id("application")
+    id("java")
     id("checkstyle")
     jacoco
 }
@@ -10,10 +9,6 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-}
-
-application {
-    mainClass = "hexlet.code.App"
 }
 
 dependencies {
