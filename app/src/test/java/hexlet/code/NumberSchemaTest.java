@@ -32,10 +32,19 @@ class NumberSchemaTest {
         var schema = new NumberSchema();
         assertTrue(schema.isValid(null));
         schema.range(5, 10);
+        assertTrue(schema.isValid(7));
         assertTrue(schema.isValid(5));
         assertTrue(schema.isValid(10));
         assertFalse(schema.isValid(3));
         assertFalse(schema.isValid(12));
         assertTrue(schema.isValid(null));
+    }
+    @Test
+    void numberTest() {
+        var schema = new NumberSchema();
+        assertTrue(schema.required().positive().range(5, 10).isValid(10));
+        assertTrue(schema.positive().range(5, 10).isValid(7));
+        assertFalse(schema.required().positive().range(0, 20).isValid(0));
+        assertFalse(schema.positive().range(8, 10).isValid(5));
     }
 }

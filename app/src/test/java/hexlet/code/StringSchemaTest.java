@@ -19,7 +19,6 @@ class StringSchemaTest {
     @Test
     void minLengthTest() {
         var schema = new StringSchema();
-        assertTrue(schema.isValid(null));
         assertTrue(schema.minLength(10).isValid("what does the fox say"));
         assertFalse(schema.minLength(10).isValid("Hexlet"));
         assertTrue(schema.minLength(5).isValid(null));
@@ -28,9 +27,16 @@ class StringSchemaTest {
     @Test
     void containsTest() {
         var schema = new StringSchema();
-        assertTrue(schema.isValid(null));
         assertTrue(schema.contains("wh").isValid("what does the fox say"));
         assertFalse(schema.contains("whatthe").isValid("what does the fox say"));
         assertTrue(schema.contains("wh").isValid(null));
+    }
+    @Test
+    void stringTest() {
+        var schema = new StringSchema();
+        assertTrue(schema.required().minLength(10).contains("wh").isValid("what does the fox say"));
+        assertFalse(schema.required().minLength(10).contains("whatthe").isValid("what does the fox say"));
+        assertTrue(schema.minLength(5).contains("Hex").isValid("Hexlet"));
+        assertFalse(schema.required().minLength(10).isValid("Hexlet"));
     }
 }
