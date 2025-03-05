@@ -17,18 +17,22 @@ The string() method call is used to validate string data.
 ```
 var schema = v.string();
 ```
-A set of methods:
-```
+A set of methods:  
+
 required() — makes the data mandatory. In other words, it adds a restriction to the schema that prevents the use of null or an empty string as a value.
 schema.required();
-
+```
 schema.isValid(null); // false
 schema.isValid(""); // false
 schema.isValid("what does the fox say"); // true
 schema.isValid("hexlet"); // true
+```
 minLength() — adds a minimum length limit for a string to the schema. The string must be equal to or longer than the specified number
+```
 schema.minLength(4).isValid("Hexlet"); // true
+```
 contains() — adds a restriction on the contents of the string to the schema. The string must contain a specific substring
+```
 schema.contains("wh").isValid("what does the fox say"); // true
 schema.contains("what").isValid("what does the fox say"); // true
 schema.contains("whatthe").isValid("what does the fox say"); // false
@@ -38,17 +42,22 @@ The number() method is used to validate numbers.
 var schema = v.number();
 ```
 A set of methods:
-```
+
 required() — adds a restriction to the scheme that prevents the use of null as a value
+```
 schema.required();
 
 schema.isValid(null); // false
 schema.isValid(10); // true
+```
 positive() — adds a restriction on the sign of the number. The number must be positive
+```
 schema.positive();
 schema.isValid(-10); // false
 schema.isValid(0); // false
+```
 range() — adds a valid range to which the value of the number should fall, including the boundaries.
+```
 schema.range(5, 10);
 
 schema.isValid(5); // true
@@ -62,17 +71,19 @@ var v = new Validator();
 
 var schema = v.map();
 ```
-A set of methods:
-```
+A set of methods:  
+
 required() — adds a constraint to the schema that does not allow null to be used as a value. Requires the Map
 schema.required();
-
+```
 schema.isValid(null); // false
 schema.isValid(new HashMap<>()); // true
 var data = new HashMap<String, String>();
 data.put("key1", "value1");
 schema.isValid(data); // true
+```
 sizeof() data type — adds a limit on the size of the map. The number of key-value pairs in the Map object must be equal to the specified value.
+```
 schema.sizeof(2);
 
 schema.isValid(data);  // false
